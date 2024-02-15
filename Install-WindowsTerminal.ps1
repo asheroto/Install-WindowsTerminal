@@ -24,6 +24,16 @@
 	Installs winget and Windows Terminal.
 .EXAMPLE
 	Install-WindowsTerminal
+.PARAMETER Force
+    Ensures installation of winget and its dependencies, even if already present.
+.PARAMETER UpdateSelf
+    Updates the script to the latest version on PSGallery.
+.PARAMETER CheckForUpdate
+    Checks if there is an update available for the script.
+.PARAMETER Version
+    Displays the version of the script.
+.PARAMETER Help
+    Displays the full help information for the script.
 .NOTES
 	Version      : 0.0.1
 	Created by   : asheroto
@@ -131,6 +141,9 @@ function Strip-ProgressIndent {
         [ScriptBlock]$ScriptBlock,
         [int]$Indentation = 4
     )
+
+    # Function identical to Strip-Progress function by asheroto, but with an additional parameter to specify the indentation level
+    # https://gist.github.com/asheroto/96bcabe428e8ad134ef204573810041f
 
     # Regex pattern to match spinner characters and progress bar patterns, now accounting for one or more spaces
     $progressPattern = 'Γû[Æê]\s*|^\s*[-\\|/]\s*$'
