@@ -5,7 +5,7 @@ Install [Windows Terminal](https://github.com/microsoft/terminal) entirely from 
 ## Script Functionality
 1. Installs [winget](https://github.com/microsoft/winget-cli) using [winget-install](https://github.com/asheroto/winget-install)
 2. Installs [Windows Terminal](https://github.com/microsoft/terminal)
-3. Downloads & installs the Casdadia Mono font used by Windows Terminal
+3. Downloads & installs the Cascadia Mono font from [Cascadia Code](https://github.com/microsoft/cascadia-code)
 
 ## Setup
 
