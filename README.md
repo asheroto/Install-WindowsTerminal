@@ -105,3 +105,8 @@ As a more conventional approach, download the latest [Install-WindowsTerminal.ps
 ```powershell
 Install-WindowsTerminal -Force
 ```
+
+## Troubleshooting
+- I'm seeing a bunch of characters like `ΓûêΓûêΓûêΓûêΓûê` on step 2.
+  - This is a [known issue](https://github.com/microsoft/winget-cli/issues/2582) of `winget` and has to due with the inability to turn off winget output, despite using `--silent` and `--disable-interactivity`.
+  - To help avoid this, the `Strip-Progress` function has been implemented, and although it works for step 1, it doesn't work as well as hoped in step 2.

@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 0.0.1
+.VERSION 0.0.2
 
 .GUID 98cb59b3-0489-4609-9c31-4f85be9433ea
 
@@ -14,6 +14,7 @@
 
 .RELEASENOTES
 [Version 0.0.1] - Initial Release.
+[Version 0.0.2] - Adjust UpdateSelf function to reset PSGallery to original state if it was not trusted.
 
 #>
 
@@ -35,7 +36,7 @@
 .PARAMETER Help
     Displays the full help information for the script.
 .NOTES
-	Version      : 0.0.1
+	Version      : 0.0.2
 	Created by   : asheroto
 .LINK
 	Project Site: https://github.com/asheroto/Install-WindowsTerminal
@@ -50,7 +51,7 @@ param (
 )
 
 # Version
-$CurrentVersion = '0.0.1'
+$CurrentVersion = '0.0.2'
 $RepoOwner = 'asheroto'
 $RepoName = 'Install-WindowsTerminal'
 $PowerShellGalleryName = 'Install-WindowsTerminal'
@@ -289,18 +290,21 @@ function UpdateSelf {
             Write-Output "Updating script to version $psGalleryScriptVersion..."
 
             # Install NuGet PackageProvider if not already installed
-            if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
-                Install-PackageProvider -Name "NuGet" -Force
-            }
+            Install-PackageProvider -Name "NuGet" -Force
 
             # Trust the PSGallery if not already trusted
-            $repo = Get-PSRepository -Name 'PSGallery'
-            if ($repo.InstallationPolicy -ne 'Trusted') {
-                Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+            $psRepoInstallationPolicy = (Get-PSRepository -Name 'PSGallery').InstallationPolicy
+            if ($psRepoInstallationPolicy -ne 'Trusted') {
+                Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted | Out-Null
             }
 
             # Update the script
             Install-Script $PowerShellGalleryName -Force
+
+            # If PSGallery was not trusted, reset it to its original state
+            if ($psRepoInstallationPolicy -ne 'Trusted') {
+                Set-PSRepository -Name 'PSGallery' -InstallationPolicy $psRepoInstallationPolicy | Out-Null
+            }
 
             Write-Output "Script updated to version $psGalleryScriptVersion."
             exit 0
@@ -599,7 +603,7 @@ if ((-not (Get-WindowsTerminalStatus)) -or $Force) {
 
     # Indent the process
     Strip-ProgressIndent -ScriptBlock {
-        winget install Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements --force
+        winget install Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements --force --silent --disable-interactivity
     }
 
     # Confirm Windows Terminal is installed
@@ -611,7 +615,7 @@ if ((-not (Get-WindowsTerminalStatus)) -or $Force) {
 
         # Indent the process
         Strip-ProgressIndent -ScriptBlock {
-            winget install "windows terminal" --source "msstore" --accept-package-agreements --accept-source-agreements --force
+            winget install "windows terminal" --source "msstore" --accept-package-agreements --accept-source-agreements --force --silent --disable-interactivity
         }
 
         if (Get-WindowsTerminalStatus) {
