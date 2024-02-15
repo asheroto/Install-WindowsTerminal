@@ -7,6 +7,17 @@ Install [Windows Terminal](https://github.com/microsoft/terminal) entirely from 
 2. Installs [Windows Terminal](https://github.com/microsoft/terminal)
 3. Downloads & installs the Cascadia Mono font from [Cascadia Code](https://github.com/microsoft/cascadia-code)
 
+## Requirements
+
+-   Requires PowerShell running with Administrator rights
+-   Compatible with:
+    -   Windows 10 (Version 1809 or higher)
+    -   Windows 11
+    -   Server 2022
+    -   Windows Sandbox
+-   Not compatible with:
+    -   Server 2019 (winget not supported)
+
 ## Setup
 
 ### Method 1 - PowerShell Gallery
