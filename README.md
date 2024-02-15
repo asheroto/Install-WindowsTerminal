@@ -1,3 +1,12 @@
+[![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/Install-WindowsTerminal?label=PowerShell%20Gallery%20downloads)](https://www.powershellgallery.com/packages/Install-WindowsTerminal)
+[![GitHub Downloads - All Releases](https://img.shields.io/github/downloads/asheroto/Install-WindowsTerminal/total?label=release%20downloads)](https://github.com/asheroto/Install-WindowsTerminal/releases)
+[![Release](https://img.shields.io/github/v/release/asheroto/Install-WindowsTerminal)](https://github.com/asheroto/Install-WindowsTerminal/releases)
+[![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/asheroto/Install-WindowsTerminal)](https://github.com/asheroto/Install-WindowsTerminal/releases)
+
+[![GitHub Sponsor](https://img.shields.io/github/sponsors/asheroto?label=Sponsor&logo=GitHub)](https://github.com/sponsors/asheroto?frequency=one-time&sponsor=asheroto)
+<a href="https://ko-fi.com/asheroto"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Ko-Fi Button" height="20px"></a>
+<a href="https://www.buymeacoffee.com/asheroto"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=seb6596&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=asheroto&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff)" height="40px"></a>
+
 # Install Windows Terminal from PowerShell
 
 Install [Windows Terminal](https://github.com/microsoft/terminal) entirely from PowerShell.
