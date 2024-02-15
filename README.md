@@ -1,6 +1,6 @@
 # Install Windows Terminal from PowerShell
 
-Installs Windows Terminal entirely from PowerShell.
+Install [Windows Terminal](https://github.com/microsoft/terminal) entirely from PowerShell.
 
 ## Script Functionality
 1. Installs [winget](https://github.com/microsoft/winget-cli) using [winget-install](https://github.com/asheroto/winget-install)
