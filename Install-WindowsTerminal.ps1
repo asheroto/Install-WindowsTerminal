@@ -43,6 +43,7 @@ param (
 $CurrentVersion = '0.0.1'
 $RepoOwner = 'asheroto'
 $RepoName = 'Install-WindowsTerminal'
+$PowerShellGalleryName = 'Install-WindowsTerminal'
 
 # Preferences
 $ProgressPreference = 'SilentlyContinue' # Suppress progress bar (makes downloading super fast)
